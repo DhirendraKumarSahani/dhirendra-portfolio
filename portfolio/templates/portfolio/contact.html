@@ -1,0 +1,69 @@
+{% extends "portfolio/base.html" %}
+{% load static %}
+{% block content %}
+
+{% if contact_page %}
+<section class="contact-section">
+
+    <!-- Decorative Shapes -->
+    <div class="contact-shape contact-shape-1"></div>
+    <div class="contact-shape contact-shape-2"></div>
+
+    <div class="contact-container">
+
+        <!-- Header -->
+        <div class="contact-header">
+            <h1>{{ contact_page.title }}</h1>
+            <p>{{ contact_page.subtitle }}</p>
+        </div>
+
+        <div class="contact-grid">
+
+            <!-- Contact Info -->
+            <div class="contact-info">
+                <p>{{ contact_page.intro_text }}</p>
+
+                <div class="contact-details">
+                    <div>
+                        <strong>Email:</strong>
+                        <span>{{ contact_page.email }}</span>
+                    </div>
+
+                    {% if contact_page.phone %}
+                    <div>
+                        <strong>Phone:</strong>
+                        <span>{{ contact_page.phone }}</span>
+                    </div>
+                    {% endif %}
+
+                    {% if contact_page.location %}
+                    <div>
+                        <strong>Location:</strong>
+                        <span>{{ contact_page.location }}</span>
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+
+            <!-- Contact Form -->
+            <div class="contact-form-wrapper">
+                <form method="post" class="contact-form">
+                    {% csrf_token %}
+
+                    <input type="text" name="name" placeholder="Your Name" required>
+                    <input type="email" name="email" placeholder="Your Email" required>
+                    <input type="text" name="subject" placeholder="Subject" required>
+                    <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+
+                    <button type="submit">Send Message</button>
+                </form>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+{% endif %}
+
+{% endblock %}

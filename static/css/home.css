@@ -1,0 +1,669 @@
+/* ==============================
+   HOME PAGE STYLESHEET
+   Author: Dhirendra Kumar
+   ============================== */
+
+
+/* ------------------------------
+   HERO SECTION
+---------------------------------*/
+
+/* ==========================================
+   PREMIUM HERO SECTION – CLEAN VERSION
+========================================== */
+
+.hero-section {
+    background: linear-gradient(
+        135deg,
+        #5f5af7 0%,
+        #6f42c1 50%,
+        #7b4bd9 100%
+    );
+    padding: 30px 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-section .container {
+    padding-left: 60px;
+}
+
+/* Decorative Soft Top Left Shape */
+
+.hero-section::before {
+    content: "";
+    position: absolute;
+    width: 320px;
+    height: 320px;
+    background: rgba(255,255,255,0.05);
+    border-radius: 50%;
+    top: -120px;
+    left: -120px;
+}
+
+/* Decorative Bottom Left Glow */
+
+.hero-section::after {
+    content: "";
+    position: absolute;
+    width: 240px;
+    height: 240px;
+    background: rgba(255, 183, 3, 0.12);
+    border-radius: 50%;
+    bottom: -100px;
+    left: -100px;
+}
+
+/* ==========================================
+   LEFT SIDE TEXT
+========================================== */
+
+.hero-title {
+    font-size: 42px;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.highlight {
+    color: #ffb703;
+}
+
+.hero-subtitle {
+    margin-top: 20px;
+    max-width: 500px;
+    font-size: 17px;
+    opacity: 0.9;
+}
+
+/* ==========================================
+   RIGHT SIDE IMAGE SECTION
+========================================== */
+
+.hero-right {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Large Yellow Background Circle */
+
+.hero-blob {
+    position: absolute;
+    width: 520px;
+    height: 520px;
+    background: #ffb703;
+    border-radius: 50%;
+    bottom: -160px;
+    right: -100px;
+    z-index: 1;
+    opacity: 0.95;
+}
+
+/* Image Wrapper (NO SHADOW as requested) */
+
+.hero-image-wrapper {
+    position: relative;
+    z-index: 2;
+    border-radius: 30px;
+    overflow: hidden;
+}
+
+/* Character Image */
+
+.hero-image {
+    width: 420px;
+    height: auto;
+    display: block;
+    transform: translateY(-10px);
+}
+
+/* ==========================================
+   EXPERIENCE BADGE
+========================================== */
+
+.experience-badge {
+    position: absolute;
+    bottom: 80px;
+    left: -30px;
+    color: white;
+    background-color: hsl(243, 100%, 72%);
+    backdrop-filter: blur(6px);
+    padding: 13px 15px;
+    border-radius: 18px;
+    text-align: center;
+    z-index: 3;
+}
+
+.experience-badge strong {
+    font-size: 26px;
+    font-weight: 700;
+    display: block;
+}
+
+.experience-badge span {
+    font-size: 14px;
+    color: white;
+}
+
+/* ==========================================
+   HERO BUTTONS
+========================================== */
+
+.btn-primary-custom {
+    background: #ffb703;
+    color: #000;
+    border-radius: 30px;
+    padding: 12px 30px;
+    font-weight: 600;
+    border: none;
+    transition: all 0.3s ease;
+}
+
+.btn-primary-custom:hover {
+    background: #ffa200;
+    transform: translateY(-2px);
+}
+
+.btn-outline-light {
+    border-radius: 30px;
+    padding: 12px 25px;
+}
+
+/* ==========================================
+   FEATURED PROJECTS SECTION
+========================================== */
+
+.section-title {
+    font-weight: 700;
+    font-size: 32px;
+    margin-bottom: 10px;
+}
+
+.project-card {
+    border-radius: 20px;
+    border: none;
+    transition: all 0.3s ease;
+    background: #ffffff;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.05);
+}
+
+.project-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.08);
+}
+
+.project-card img {
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    height: 220px;
+    object-fit: cover;
+}
+
+.project-card .card-body {
+    padding: 25px;
+}
+
+.project-card h5 {
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.project-card p {
+    font-size: 14px;
+    color: #6c757d;
+}
+
+
+/* ------------------------------
+   RESPONSIVE DESIGN
+---------------------------------*/
+
+@media (max-width: 992px) {
+
+    .hero-title {
+        font-size: 40px;
+    }
+
+    .hero-section {
+        padding: 10px 0;
+        text-align: center;
+    }
+
+    .hero-subtitle {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .image-wrapper::before {
+        width: 200px;
+        height: 200px;
+        top: 30px;
+        right: 20px;
+    }
+
+    .hero-image {
+        max-width: 320px;
+        margin-top: 40px;
+    }
+
+    .experience-badge {
+        bottom: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}
+
+@media (max-width: 576px) {
+
+    .hero-title {
+        font-size: 32px;
+    }
+
+    .hero-subtitle {
+        font-size: 14px;
+    }
+
+    .btn-primary-custom,
+    .btn-outline-light {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+}
+
+/*===============================================
+    End Hero Section
+=================================================*/
+
+/*================================================
+    START OF ABOUT SECTION
+==================================================*/
+/* ==============================
+   ABOUT SECTION
+============================== */
+
+.about-section {
+    background: #f9fafc;
+    position: relative;
+}
+
+.about-section::before {
+    content: "";
+    position: absolute;
+    top: -50px;
+    width: 100px;
+    height: 100px;
+    background: rgba(111, 66, 193, 0.08);
+    border-radius: 50%;
+}
+
+.section-title {
+    font-weight: 700;
+    font-size: 32px;
+    color: #222;
+}
+
+/* Skill Card */
+
+.skill-card {
+    background: #ffffff;
+    padding: 30px 25px;
+    border-radius: 16px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
+    transition: all 0.3s ease;
+    height: 100%;
+}
+
+.skill-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+}
+
+.skill-title {
+    font-weight: 600;
+    margin-bottom: 15px;
+    color: #5f5af7;
+}
+
+.skill-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.skill-list li {
+    margin-bottom: 10px;
+    font-size: 15px;
+    color: #555;
+    position: relative;
+    padding-left: 18px;
+}
+
+.skill-list li::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: #6f42c1;
+    font-weight: bold;
+}
+/*================================================
+    END OF ABOUT SECTION
+==================================================*/
+
+
+/* ==============================
+   sTART FEATURED PROJECTS SECTION
+============================== */
+
+.section-title {
+    font-weight: 700;
+    font-size: 32px;
+    color: #bf8585;
+}
+
+/* Project Card */
+
+.project-card {
+    border: none;
+    border-radius: 18px;
+    overflow: hidden;
+    background: #ffffff;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+    transition: all 0.35s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 18px 45px rgba(0, 0, 0, 0.08);
+}
+
+/* Image */
+
+.project-card img {
+    height: 220px;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.project-card:hover img {
+    transform: scale(1.05);
+}
+
+/* Card Body */
+
+.project-card .card-body {
+    padding: 22px 24px;
+}
+
+.project-card h5 {
+    font-weight: 600;
+    font-size: 18px;
+    margin-bottom: 12px;
+    color: #222;
+}
+
+.project-card p {
+    font-size: 14px;
+    color: #6c757d;
+    min-height: 60px;
+}
+
+/* Button */
+
+.project-card .btn {
+    border-radius: 30px;
+    font-size: 13px;
+    padding: 6px 18px;
+    transition: all 0.3s ease;
+}
+
+.project-card .btn:hover {
+    background-color: #5f5af7;
+    color: #fff;
+    border-color: #5f5af7;
+}
+
+/* Section Spacing */
+
+.py-5 {
+    padding-top: 40px !important;
+    padding-bottom: 40px !important;
+}
+
+/*==========================================
+    ENDING FEATURED PROJECTS SECTION
+============================================*/
+
+
+/*==========================================================
+        START  Hero Fix on Mobile & Tablet
+============================================================*/
+/* =================================================
+   TABLET RESPONSIVE (≤ 992px)
+   ================================================= */
+
+@media (max-width: 992px) {
+
+    .hero-section {
+        padding: 80px 0 60px;
+        text-align: center;
+    }
+
+    .hero-section .container {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    .hero-title {
+        font-size: 20px;
+        line-height: 1.3;
+    }
+
+    .hero-subtitle {
+        margin: 20px auto 0;
+        max-width: 90%;
+        font-size: 16px;
+    }
+
+    /* Stack layout properly */
+    .hero-right {
+        margin-top: 50px;
+    }
+
+    /* Resize blob properly */
+    .hero-blob {
+        width: 380px;
+        height: 380px;
+        right: 50%;
+        transform: translateX(50%);
+        bottom: -120px;
+        opacity: 0.9;
+    }
+
+    .hero-image {
+        width: 340px;
+    }
+
+    /* Experience badge centered */
+    .experience-badge {
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: -10px;
+    }
+}
+
+
+
+/* =================================================
+   MOBILE RESPONSIVE (≤ 768px)
+   ================================================= */
+
+@media (max-width: 768px) {
+
+    .hero-section {
+        padding: 10px 0 50px;
+    }
+
+    .hero-title {
+        font-size: 34px;
+    }
+
+    .highlight {
+        display: inline-block;
+    }
+
+    .hero-subtitle {
+        font-size: 15px;
+    }
+
+    /* Smaller blob */
+    .hero-blob {
+        width: 300px;
+        height: 300px;
+        bottom: -100px;
+    }
+
+    .hero-image {
+        width: 260px;
+    }
+
+    /* Buttons full width */
+    .btn-primary-custom,
+    .btn-outline-light {
+        width: 100%;
+        margin-bottom: 12px;
+    }
+
+    .experience-badge {
+        padding: 10px 14px;
+    }
+
+    .experience-badge strong {
+        font-size: 20px;
+    }
+
+}
+
+
+
+/* =================================================
+   SMALL MOBILE (≤ 576px)
+   ================================================= */
+
+@media (max-width: 576px) {
+
+    .hero-section {
+        padding: 10px 0 40px;
+    }
+
+    .hero-title {
+        font-size: 28px;
+    }
+
+    .hero-subtitle {
+        font-size: 14px;
+        line-height: 1.6;
+    }
+
+    .hero-image {
+        width: 220px;
+    }
+
+    .hero-blob {
+        width: 240px;
+        height: 240px;
+        bottom: -80px;
+    }
+
+    .experience-badge {
+        font-size: 12px;
+    }
+
+}
+/*==========================================================
+        END  Hero Fix on Mobile & Tablet
+============================================================*/
+
+/*==============================================================
+        STARTING OF ARCHITECTURE SECTION
+================================================================*/
+.architecture-section {
+    background: #0f172a;
+    padding: 50px 0;
+    color: #e2e8f0;
+}
+
+.architecture-grid {
+    display: grid;
+    grid-template-columns: 35% 62%;
+    align-items: start; /* important */
+}
+
+.architecture-left h2 {
+    font-size: 32px;
+    margin-bottom: 15px;
+    letter-spacing: 1px;
+}
+
+.subtitle {
+    color: #94a3b8;
+    margin-bottom: 40px;
+    line-height: 1.6;
+}
+
+.architecture-diagram {
+    border-left: 3px solid #6366f1;
+    padding-left: 20px;
+    line-height: 1.8;
+    font-size: 14px;
+    color: #cbd5e1;
+}
+
+.architecture-right {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.principle-card {
+    background: linear-gradient(
+        145deg,
+        #111827,
+        #0f172a
+    );
+    padding: 28px;
+    border-radius: 14px;
+    border: 1px solid rgba(148,163,184,0.15);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.35);
+    transition: all 0.3s ease;
+    position: relative;
+    z-index: 2; /* important */
+}
+
+.principle-card:hover {
+    transform: translateY(-6px);
+    border-color: rgba(99,102,241,0.5);
+}
+
+.principle-card h4 {
+    margin-bottom: 12px;
+    font-weight: 600;
+    color: #f1f5f9;
+}
+
+.principle-card p {
+    color: #cbd5e1;
+    line-height: 1.7;
+}
+
+.why {
+    margin-top: 14px;
+    padding-top: 12px;
+    border-top: 1px solid rgba(148,163,184,0.15);
+    font-size: 14px;
+    color: #94a3b8;
+}
+/*==============================================================
+        ENDING OF ARCHITECTURE SECTION
+================================================================*/

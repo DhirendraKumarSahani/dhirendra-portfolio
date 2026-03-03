@@ -1,0 +1,121 @@
+/* ==========================================
+   ALL PROJECTS PAGE
+========================================== */
+
+section.py-5 {
+    background: #0f172a;   /* deep slate */
+    padding: 30px 0 !important;
+    color: #e2e8f0;
+}
+
+/* ------------------------------------------
+   Section Header
+------------------------------------------ */
+
+.section-title {
+    font-size: 34px;
+    font-weight: 600;
+    letter-spacing: -0.5px;
+    color: #f1f5f9;
+}
+
+.text-muted {
+    color: #94a3b8 !important;
+    font-size: 15px;
+    margin-top: 10px;
+}
+
+/* ------------------------------------------
+   Project Card
+------------------------------------------ */
+
+.project-card {
+    background: #111827;
+    border-radius: 18px;
+    border: 1px solid rgba(148,163,184,0.15);
+    overflow: hidden;
+    transition: all 0.35s ease;
+    height: 100%;
+}
+
+/* Hover Effect */
+.project-card:hover {
+    transform: translateY(-8px);
+    border-color: rgba(99,102,241,0.5);
+    box-shadow: 0 25px 50px rgba(0,0,0,0.45);
+}
+
+/* ------------------------------------------
+   Project Image
+------------------------------------------ */
+
+.project-card img {
+    height: 220px;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.project-card:hover img {
+    transform: scale(1.05);
+}
+
+/* ------------------------------------------
+   Card Body
+------------------------------------------ */
+
+.project-card .card-body {
+    padding: 24px;
+}
+
+.project-card h5 {
+    font-size: 18px;
+    font-weight: 600;
+    color: #f1f5f9;
+    margin-bottom: 12px;
+}
+
+.project-card p {
+    font-size: 14px;
+    color: #94a3b8 !important;
+    line-height: 1.7;
+    min-height: 60px;
+}
+
+/* ------------------------------------------
+   Button
+------------------------------------------ */
+
+.project-card .btn {
+    border-radius: 30px;
+    font-size: 13px;
+    padding: 7px 18px;
+    border: 1px solid rgba(148,163,184,0.3);
+    color: #e2e8f0;
+    transition: all 0.3s ease;
+}
+
+.project-card .btn:hover {
+    background: #6366f1;
+    border-color: #6366f1;
+    color: #ffffff;
+}
+
+/* ------------------------------------------
+   Responsive Improvements
+------------------------------------------ */
+
+@media (max-width: 992px) {
+    section.py-5 {
+        padding: 70px 0 !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .section-title {
+        font-size: 28px;
+    }
+
+    .project-card img {
+        height: 200px;
+    }
+}

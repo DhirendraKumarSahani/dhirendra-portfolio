@@ -1,0 +1,195 @@
+{% extends 'portfolio/base.html' %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/home.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<!-- HERO SECTION -->
+<section class="hero-section">
+    <div class="container">
+        <div class="row align-items-center">
+
+            <!-- LEFT CONTENT -->
+            <div class="col-lg-6 text-white">
+                <h1 class="hero-title">
+                    Hello, I’m <br>
+                    <span class="highlight">Dhirendra Kumar</span> <br>
+                    AI & Web Devloper Engineer
+                </h1>
+
+                <p class="hero-subtitle">
+                    AI Engineer specializing in LLM Systems, Machine Learning & Production AI Architectures.
+                    I build scalable AI-powered applications ready for deployment.
+                </p>
+
+                <div class="mt-4">
+                    <a href="/projects/" class="btn btn-primary-custom me-3">
+                        View Projects
+                    </a>
+                    <a href="#" class="btn btn-outline-light rounded-pill px-4">
+                        Download CV
+                    </a>
+                </div>
+            </div>
+
+            <!-- RIGHT IMAGE -->
+            <div class="col-lg-6 position-relative hero-right">
+
+                <!-- Yellow Background Circle -->
+                <div class="hero-blob"></div>
+
+                <!-- Profile Image -->
+                <div class="hero-image-wrapper">
+                    <img src="{% static 'profile.png' %}"
+                        alt="Dhirendra Kumar"
+                        class="hero-image">
+                </div>
+
+                <!-- Experience Badge -->
+                <div class="experience-badge">
+                    <strong>2+</strong>
+                    <span>Years Experience</span>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- TECHNICAL SKILLS SECTION -->
+<section class="about-section py-5">
+    <div class="container">
+
+        <div class="text-center mb-5">
+            <h2 class="section-title">Technical Skills</h2>
+            <p class="text-muted">
+                B.Tech – Artificial Intelligence & Machine Learning (7th Semester) <br>
+                Focused on scalable AI systems and LLM architectures.
+            </p>
+        </div>
+
+        <div class="row g-4">
+
+            {% for category in skill_categories %}
+            <div class="col-md-6 col-lg-4">
+                <div class="skill-card">
+                    <h5 class="skill-title">{{ category.name }}</h5>
+                    <ul class="skill-list">
+                        {% for skill in category.skills.all %}
+                            <li>{{ skill.name }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+            {% endfor %}
+
+        </div>
+
+    </div>
+</section>
+
+<!-- FEATURED PROJECTS -->
+<section class="py-5">
+    <div class="container">
+
+        <div class="text-center mb-5">
+            <h2 class="section-title">Featured Projects</h2>
+            <p class="text-muted">Selected production-level systems I have engineered.</p>
+        </div>
+
+        <div class="row">
+            {% for project in featured_projects %}
+                <div class="col-md-4 mb-4">
+                    <div class="card project-card h-100">
+
+                        {% if project.thumbnail %}
+                            <img src="{{ project.thumbnail.url }}" class="card-img-top">
+                        {% endif %}
+
+                        <div class="card-body">
+                            <h5 class="fw-bold">{{ project.title }}</h5>
+                            <p class="text-muted">{{ project.short_description }}</p>
+
+                            <a href="{% url 'project_detail' project.slug %}" 
+                               class="btn btn-outline-dark btn-sm rounded-pill">
+                               View Case Study →
+                            </a>
+                        </div>
+
+                    </div>
+                </div>
+            {% empty %}
+                <p class="text-center">No featured projects yet.</p>
+            {% endfor %}
+        </div>
+
+    </div>
+</section>
+
+{% if architecture_section %}
+<section class="architecture-section">
+    <div class="container">
+        <div class="architecture-grid">
+
+            <!-- LEFT COLUMN -->
+            <div class="architecture-left">
+                <h2>{{ architecture_section.title }}</h2>
+                <p class="subtitle">
+                    {{ architecture_section.subtitle }}
+                </p>
+
+                <div class="architecture-diagram">
+                    <div>User Request</div>
+                    <span>↓</span>
+                    <div>FastAPI Layer</div>
+                    <span>↓</span>
+                    <div>AI Orchestrator</div>
+                    <span>↓</span>
+                    <div>Memory / Retrieval</div>
+                    <span>↓</span>
+                    <div>LLM</div>
+                </div>
+            </div>
+
+            <!-- RIGHT COLUMN -->
+            <div class="architecture-right">
+                {% for principle in architecture_section.principles.all %}
+                <div class="principle-card">
+                    <h4>{{ principle.title }}</h4>
+                    <p>{{ principle.description }}</p>
+
+                    <div class="why">
+                        <strong>Why it matters:</strong>
+                        <p>{{ principle.why_it_matters }}</p>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+
+        </div>
+    </div>
+</section>
+{% endif %}
+
+<!-- Contact Form -->
+<div class="contact-form-wrapper">
+
+    <p> Contact Form </p>
+
+    <form method="post" class="contact-form">
+        {% csrf_token %}
+
+        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="email" name="email" placeholder="Your Email" required>
+        <input type="text" name="subject" placeholder="Subject" required>
+        <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+
+        <button type="submit">Send Message</button>
+    </form>
+</div>
+
+{% endblock %}

@@ -1,0 +1,302 @@
+/* ==========================================
+   GLOBAL RESET & TYPOGRAPHY
+========================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #ffffff;
+    color: #111;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Container refinement */
+
+.container {
+    max-width: 1140px;
+}
+
+
+/* ==========================================
+   NAVBAR – ELEGANT DARK GLASS STYLE
+========================================== */
+
+/* ======================================
+   BRAND NAME – PREMIUM STYLE
+====================================== */
+
+.brand-name {
+    font-size: 20px;
+    font-weight: 600;
+    text-decoration: none;
+    letter-spacing: 0.5px;
+    display: inline-block;
+    transition: all 0.4s ease;
+}
+
+/* First Name – Light Elegant */
+
+.brand-first {
+    color: #ffffff;
+    font-weight: 400;
+    transition: 0.4s ease;
+}
+
+/* Last Name – Premium Gradient */
+
+.brand-last {
+    font-weight: 700;
+    background: linear-gradient(135deg, #7c83ff, #b26cff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    transition: 0.4s ease;
+}
+
+/* Hover Animation */
+
+.brand-name:hover .brand-first {
+    color: #b26cff;
+}
+
+.brand-name:hover .brand-last {
+    letter-spacing: 1px;
+}
+
+/* Subtle Glow on Hover */
+
+.brand-name:hover {
+    transform: translateY(-2px);
+}
+
+.main-navbar {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    padding: 20px 0;
+    background: rgba(15, 18, 32, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    transition: all 0.4s ease;
+}
+
+/* Shadow when scrolling */
+.main-navbar.scrolled {
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.25);
+}
+
+/* Wrapper */
+.nav-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* LEFT SECTION */
+
+.nav-left {
+    display: flex;
+    flex-direction: column;
+}
+
+.brand-name {
+    font-size: 18px;
+    font-weight: 600;
+    color: #ffffff;
+    text-decoration: none;
+    letter-spacing: 0.5px;
+    transition: 0.3s ease;
+}
+
+.brand-name:hover {
+    color: #7c83ff;
+}
+
+.brand-role {
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #aaa;
+    margin-top: 4px;
+}
+
+/* RIGHT SECTION */
+
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 35px;
+}
+
+/* Navigation Links */
+
+.nav-link {
+    font-size: 14px;
+    font-weight: 500;
+    color: #ddd;
+    text-decoration: none;
+    position: relative;
+    transition: 0.3s ease;
+}
+
+/* Elegant underline animation */
+
+.nav-link::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 0%;
+    height: 2px;
+    background: #7c83ff;
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+.nav-link:hover {
+    color: #ffffff;
+}
+
+/* Resume Button */
+
+.nav-cta {
+    padding: 8px 22px;
+    border-radius: 30px;
+    background: linear-gradient(135deg, #5f5af7, #7b4bd9);
+    color: #fff;
+    font-size: 13px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.35s ease;
+}
+
+.nav-cta:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 25px rgba(95, 90, 247, 0.4);
+}
+
+/* Responsive */
+
+@media (max-width: 992px) {
+    .nav-wrapper {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .brand-role {
+        display: none;
+    }
+
+    /* ==========================================
+   PAGE CONTENT WRAPPER
+========================================== */
+
+main {
+    padding: 80px 0;
+}
+
+
+/* ==========================================
+   FOOTER
+========================================== */
+
+.footer {
+    padding: 20px 0;
+    text-align: center;
+    font-size: 13px;
+    color: #777;
+    border-top: 1px solid #f1f1f1;
+    margin-top: 10px;
+    letter-spacing: 0.5px;
+}
+}
+
+
+
+/* ==========================================
+   RESPONSIVE DESIGN
+========================================== */
+
+
+@media (max-width: 576px) {
+
+    .nav-right {
+        gap: 15px;
+    }
+
+    .nav-link {
+        font-size: 13px;
+    }
+
+    .nav-cta {
+        padding: 6px 16px;
+        font-size: 12px;
+    }
+}
+
+/*==========================================================
+        Start navbar CSS Only for Mobile , Tab
+============================================================*/
+/* ==========================================
+   HIDE BRAND ON TABLET & MOBILE
+   ========================================== */
+
+@media (max-width: 992px) {
+
+    .nav-left {
+        display: none;
+    }
+
+}
+/*==========================================================
+        Ending navbar CSS Only for Mobile , Tab
+============================================================*/
+
+/* =====================================
+   FOOTER — MINIMAL PROFESSIONAL
+===================================== */
+
+.footer {
+    background: #a8aeba; /* same base tone */
+    border-top: 1px solid rgba(148,163,184,0.12);
+    padding: 28px 0;
+    text-align: center;
+    font-size: 14px;
+    color: #000000;
+    letter-spacing: 0.4px;
+}
+
+/* Subtle hover effect if name wrapped in span or link */
+.footer a {
+    color: #cbd5e1;
+    text-decoration: none;
+    transition: 0.3s ease;
+}
+
+.footer a:hover {
+    color: #6366f1;
+}
+
+/* Slight depth separation from page */
+.footer::before {
+    content: "";
+    display: block;
+    height: 1px;
+    width: 100%;
+    background: linear-gradient(
+        to right,
+        transparent,
+        rgba(99,102,241,0.15),
+        transparent
+    );
+    margin-bottom: 20px;
+}

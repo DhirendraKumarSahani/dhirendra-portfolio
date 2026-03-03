@@ -1,0 +1,224 @@
+{% extends 'portfolio/base.html' %}
+{% load static %}
+
+{% block content %}
+
+<!-- =========================
+     HERO SECTION (Image Left)
+========================== -->
+
+<section class="project-hero-section">
+    <div class="container">
+        <div class="row align-items-center g-5">
+
+            <!-- LEFT: IMAGE -->
+            <div class="col-lg-6">
+                <div class="hero-image-box">
+                    <img src="{{ project.thumbnail.url }}" alt="{{ project.title }}">
+                </div>
+            </div>
+
+            <!-- RIGHT: CONTENT -->
+            <div class="col-lg-6">
+
+                <span class="hero-category">
+                    {{ project.get_category_display }}
+                </span>
+
+                <h1 class="hero-title">
+                    {{ project.title }}
+                </h1>
+
+                <p class="hero-short-desc">
+                    {{ project.short_description }}
+                </p>
+
+                <div class="hero-buttons mt-4">
+                    {% if project.github_link %}
+                        <a href="{{ project.github_link }}" target="_blank"
+                           class="btn btn-primary-hero me-3">
+                            View Code
+                        </a>
+                    {% endif %}
+
+                    {% if project.live_demo %}
+                        <a href="{{ project.live_demo }}" target="_blank"
+                           class="btn btn-outline-hero">
+                            Live Demo
+                        </a>
+                    {% endif %}
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- =========================
+     MAIN CONTENT SECTION
+========================== -->
+
+<section class="project-body-section">
+    <div class="container">
+        <div class="row g-5">
+
+            <!-- LEFT: OVERVIEW -->
+            <div class="col-lg-8">
+                <div class="content-card">
+                    <h3>Project Overview</h3>
+                    <div class="project-description">
+                        {{ project.full_description|linebreaks }}
+                    </div>
+                </div>
+            </div>
+
+            <!-- RIGHT: TECH STACK -->
+            <div class="col-lg-4">
+                <div class="content-card sticky-card">
+                    <h3>Tech Stack</h3>
+
+                    <div class="tech-list">
+                        {% for tech in project.tech_stack_list %}
+                            {% if ':' in tech %}
+                                <div class="tech-heading">
+                                    {{ tech }}
+                                </div>
+                            {% else %}
+                                <div class="tech-item">
+                                    {{ tech }}
+                                </div>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- =========================
+     PROJECT GALLERY
+========================== -->
+
+{% if project.images.all %}
+<section class="project-gallery-section">
+    <div class="container">
+        <h2 class="section-heading text-center mb-5">
+            Project Gallery
+        </h2>
+
+        <div class="row g-4">
+            {% for image in project.images.all %}
+                <div class="col-md-4">
+                    <div class="gallery-card">
+                        <img src="{{ image.image.url }}" alt="">
+                        {% if image.caption %}
+                            <div class="gallery-caption">
+                                {{ image.caption }}
+                            </div>
+                        {% endif %}
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endif %}
+
+
+<!-- =========================
+     DOCUMENT SECTION
+========================== -->
+
+{% if project.documents.all %}
+<section class="documents-section">
+    <div class="container">
+        <h2 class="section-heading text-center mb-5">
+            Documentation
+        </h2>
+
+        <div class="row g-4">
+            {% for doc in project.documents.all %}
+                <div class="col-md-6 col-lg-4">
+                    <div class="document-card">
+                        <h5>{{ doc.title }}</h5>
+                        <a href="{{ doc.file.url }}" target="_blank"
+                           class="btn btn-outline-hero mt-3">
+                            View Document
+                        </a>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endif %}
+
+
+
+{% if project.architecture %}
+<section class="architecture-section">
+
+    <!-- Top Identifier -->
+    <div class="architecture-banner">
+        <div class="architecture-banner-inner">
+            <span class="architecture-tag">SYSTEM ARCHITECTURE</span>
+        </div>
+    </div>
+
+    <div class="architecture-wrapper">
+
+        <!-- Header -->
+        <header class="architecture-header">
+            <h1 class="architecture-title">
+                {{ project.architecture.headline }}
+            </h1>
+
+            <p class="architecture-subtitle">
+                {{ project.architecture.subtitle }}
+            </p>
+        </header>
+
+        <div class="architecture-divider"></div>
+
+        <!-- Overview -->
+        <div class="architecture-overview">
+            <h3 class="overview-title">
+                {{ project.architecture.overview_title }}
+            </h3>
+        </div>
+
+        <!-- Layered System -->
+        <div class="architecture-grid">
+
+            {% for layer in project.architecture.layers.all %}
+            <div class="architecture-item">
+
+                <div class="architecture-number">
+                    {{ forloop.counter|stringformat:"02d" }}
+                </div>
+
+                <div class="architecture-content">
+                    <h4 class="architecture-item-title">
+                        {{ layer.title }}
+                    </h4>
+
+                    <div class="architecture-item-description">
+                        {{ layer.description|linebreaks }}
+                    </div>
+                </div>
+
+            </div>
+            {% endfor %}
+
+        </div>
+
+    </div>
+
+</section>
+{% endif %}
+
+{% endblock %}
