@@ -24,8 +24,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'django-insecure-$7k6(b6y3$p%=udwp**n*+y@$fduu9&kr=j4ppr@)m0-yl-r17'
 
+DATABASE_URL = os.getenv("DATABASE_URL")
+
+
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.getenv("RENDER") is None
+DEBUG = os.getenv("DEBUG", "False") == "True"
 
 ALLOWED_HOSTS = ["*"] # Temporary, will restrict later
 
@@ -79,7 +82,9 @@ WSGI_APPLICATION = 'core.wsgi.application'
 
 DATABASES = {
     "default": dj_database_url.config(
-        default="sqlite:///db.sqlite3"
+        default=os.getenv("DATABASE_URL"),
+        conn_max_age=600,
+        ssl_require=True
     )
 }
 
