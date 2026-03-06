@@ -1,4 +1,5 @@
 from django.db import models
+import cloudinary.models
 
 # Create your models here.
 
@@ -23,7 +24,7 @@ class Project(models.Model):
 
     category = models.CharField(max_length=50, choices=CATEGORY_CHOICES)
 
-    thumbnail = models.ImageField(upload_to='projects/')
+    thumbnail = cloudinary.models.CloudinaryField('image')
 
     created_at = models.DateTimeField(auto_now_add=True)
 
