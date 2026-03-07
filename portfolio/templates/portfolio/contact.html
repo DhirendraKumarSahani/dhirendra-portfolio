@@ -47,8 +47,8 @@
 
             <!-- Contact Form -->
             <div class="contact-form-wrapper">
-                <form method="post" class="contact-form">
-                    {% csrf_token %}
+                <form class="contact-form">
+                    
 
                     <input type="text" name="name" placeholder="Your Name" required>
                     <input type="email" name="email" placeholder="Your Email" required>
@@ -65,5 +65,37 @@
 
 </section>
 {% endif %}
+
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+
+<script>
+(function(){
+emailjs.init("Ie1_ctQAxGuT-Ne6N");
+})();
+</script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function(){
+
+document.querySelector(".contact-form").addEventListener("submit", function(e){
+
+e.preventDefault();
+
+emailjs.send("service_c6u7pxi","template_1v8bdbi",{
+name: document.querySelector("[name='name']").value,
+email: document.querySelector("[name='email']").value,
+subject: document.querySelector("[name='subject']").value,
+message: document.querySelector("[name='message']").value
+})
+.then(function(){
+alert("Message sent successfully!");
+}, function(error){
+alert("Failed to send message.");
+});
+
+});
+
+});
+</script>
 
 {% endblock %}

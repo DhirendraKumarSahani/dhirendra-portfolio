@@ -68,18 +68,6 @@ def contact(request):
             message=message
         )
 
-        # Send email to admin
-        try:
-            send_mail(
-                subject=f"New Contact: {subject}",
-                message=f"Name: {name}\nEmail: {email}\n\nMessage:\n{message}",
-                from_email=settings.DEFAULT_FROM_EMAIL,
-                recipient_list=[settings.EMAIL_HOST_USER],
-                fail_silently= False,
-            )
-        except Exception as e:
-            print("Email sending Failed:", e)
-
         return redirect("contact")
 
     return render(request, "portfolio/contact.html", {
