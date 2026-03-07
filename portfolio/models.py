@@ -126,7 +126,7 @@ class ProjectArchitecture(models.Model):
 # Create Resume Model
 class Resume(models.Model):
     title = models.CharField(max_length=200, default="My Resume")
-    file = cloudinary.models.CloudinaryField(resource_type = "raw")
+    file = cloudinary.models.CloudinaryField("image")
     updated_at = models.DateTimeField(auto_now=True)
     is_active = models.BooleanField(default=True)
 

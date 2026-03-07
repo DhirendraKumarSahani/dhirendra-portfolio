@@ -49,15 +49,13 @@
             <a href="/projects/" class="nav-link">Projects</a>
             <a href="/contact/" class="nav-link">Contact</a>
 
-            {% if active_resume %}
-            <a href="{{ active_resume.file.url }}"
-               target="_blank"
-               rel="noopener"
-               download
-               class="nav-cta">
-               Download Resume
+            
+            <a href="{% load static %}{% static 'resume/dhirendra_resume.pdf' %}"
+            target="_blank"
+            download
+            class="nav-cta">
+                Download Resume
             </a>
-            {% endif %}
         </div>
 
     </div>
