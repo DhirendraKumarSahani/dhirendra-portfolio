@@ -69,12 +69,16 @@ def contact(request):
         )
 
         # Send email to admin
-        send_mail(
-            subject=f"New Contact: {subject}",
-            message=f"Name: {name}\nEmail: {email}\n\nMessage:\n{message}",
-            from_email=settings.DEFAULT_FROM_EMAIL,
-            recipient_list=[settings.EMAIL_HOST_USER],
-        )
+        try:
+            send_mail(
+                subject=f"New Contact: {subject}",
+                message=f"Name: {name}\nEmail: {email}\n\nMessage:\n{message}",
+                from_email=settings.DEFAULT_FROM_EMAIL,
+                recipient_list=[settings.EMAIL_HOST_USER],
+                fail_silently= False,
+            )
+        except Exception as e:
+            print("Email sending Failed:", e)
 
         return redirect("contact")
 
