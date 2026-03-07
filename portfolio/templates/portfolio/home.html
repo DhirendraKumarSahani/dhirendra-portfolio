@@ -143,16 +143,37 @@
                 </p>
 
                 <div class="architecture-diagram">
-                    <div>User Request</div>
-                    <span>↓</span>
-                    <div>FastAPI Layer</div>
-                    <span>↓</span>
-                    <div>AI Orchestrator</div>
-                    <span>↓</span>
-                    <div>Memory / Retrieval</div>
-                    <span>↓</span>
-                    <div>LLM</div>
+
+                    <div class="node">User</div>
+                    <span class="arrow">↓</span>
+
+                    <div class="node">FastAPI API</div>
+                    <span class="arrow">↓</span>
+
+                    <div class="node">AI Orchestrator</div>
+
+                    <div class="sub-components">
+                        <div>Thread ID Management</div>
+                        <div>Config System</div>
+                        <div>Tool Execution</div>
+                        <div>Memory Injection</div>
+                    </div>
+
+                    <span class="arrow">↓</span>
+
+                    <div class="node">LangChain Agent</div>
+                    <span class="arrow">↓</span>
+
+                    <div class="node">Groq LLM</div>
+                    <span class="arrow">↓</span>
+
+                    <div class="node">Structured JSON Output</div>
+                    <span class="arrow">↓</span>
+
+                    <div class="node">Frontend Application</div>
+
                 </div>
+
             </div>
 
             <!-- RIGHT COLUMN -->
