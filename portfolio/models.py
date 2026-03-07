@@ -82,7 +82,7 @@ class ProjectImage(models.Model):
         related_name='images',
         on_delete=models.CASCADE
     )
-    image = models.ImageField(upload_to='projects/gallery/')
+    image = cloudinary.models.CloudinaryField('image')
     caption = models.CharField(max_length=200, blank=True)
 
     def __str__(self):
@@ -96,7 +96,7 @@ class ProjectDocument(models.Model):
         on_delete=models.CASCADE
     )
     title = models.CharField(max_length=200)
-    file = models.FileField(upload_to='projects/documents/')
+    file = cloudinary.models.CloudinaryField(resource_type="raw")
 
     def __str__(self):
         return f"{self.project.title} - {self.title}"
@@ -126,7 +126,7 @@ class ProjectArchitecture(models.Model):
 # Create Resume Model
 class Resume(models.Model):
     title = models.CharField(max_length=200, default="My Resume")
-    file = models.FileField(upload_to='resume/')
+    file = cloudinary.models.CloudinaryField(resource_type = "raw")
     updated_at = models.DateTimeField(auto_now=True)
     is_active = models.BooleanField(default=True)
 
@@ -191,7 +191,7 @@ class AboutPage(models.Model):
     subtitle = models.TextField()
     intro_paragraph = models.TextField()
 
-    profile_image = models.ImageField(upload_to="about/", blank=True, null=True)
+    profile_image = cloudinary.models.CloudinaryField('image', blank=True, null=True)
 
     def __str__(self):
         return "About Page"
