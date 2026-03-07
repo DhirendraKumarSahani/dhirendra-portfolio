@@ -47,8 +47,8 @@
 
             <!-- Contact Form -->
             <div class="contact-form-wrapper">
-                <form class="contact-form">
-                    
+                <form method="post" class="contact-form">
+                    {% csrf_token %}
 
                     <input type="text" name="name" placeholder="Your Name" required>
                     <input type="email" name="email" placeholder="Your Email" required>
@@ -78,8 +78,6 @@ emailjs.init("Ie1_ctQAxGuT-Ne6N");
 document.addEventListener("DOMContentLoaded", function(){
 
 document.querySelector(".contact-form").addEventListener("submit", function(e){
-
-e.preventDefault();
 
 emailjs.send("service_c6u7pxi","template_1v8bdbi",{
 name: document.querySelector("[name='name']").value,
