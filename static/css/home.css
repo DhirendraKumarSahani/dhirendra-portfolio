@@ -594,7 +594,7 @@
     color: #e2e8f0;
 }
 
-.architecture-grid {
+.architecture-home-grid {
     display: grid;
     grid-template-columns: 35% 62%;
     align-items: start; /* important */
@@ -673,7 +673,7 @@
 
 @media (max-width: 992px) {
 
-    .architecture-grid {
+    .architecture-home-grid {
         grid-template-columns: 1fr;
         gap: 20px;
     }
