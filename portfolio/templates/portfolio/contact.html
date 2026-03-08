@@ -77,7 +77,11 @@ emailjs.init("Ie1_ctQAxGuT-Ne6N");
 <script>
 document.addEventListener("DOMContentLoaded", function(){
 
-document.querySelector(".contact-form").addEventListener("submit", function(e){
+const form = document.querySelector(".contact-form");
+
+form.addEventListener("submit", function(e){
+
+e.preventDefault();
 
 emailjs.send("service_c6u7pxi","template_1v8bdbi",{
 name: document.querySelector("[name='name']").value,
@@ -86,9 +90,17 @@ subject: document.querySelector("[name='subject']").value,
 message: document.querySelector("[name='message']").value
 })
 .then(function(){
-alert("Message sent successfully!");
+
+console.log("Email sent successfully");
+
+form.submit();   // Django ko POST bhejega
+
 }, function(error){
-alert("Failed to send message.");
+
+console.log("Email failed", error);
+
+form.submit();   // Email fail ho to bhi message DB me save ho
+
 });
 
 });
