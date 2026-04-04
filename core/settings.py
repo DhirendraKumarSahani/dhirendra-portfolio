@@ -22,7 +22,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/6.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-$7k6(b6y3$p%=udwp**n*+y@$fduu9&kr=j4ppr@)m0-yl-r17'
+SECRET_KEY = os.getenv("SECRET_KEY", "fallback-secret-key")
 
 DATABASE_URL = os.getenv("DATABASE_URL")
 
@@ -30,7 +30,9 @@ DATABASE_URL = os.getenv("DATABASE_URL")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.getenv("DEBUG", "False") == "True"
 
-ALLOWED_HOSTS = ["*"] # Temporary, will restrict later
+ALLOWED_HOSTS = [
+    "your-app-name.onrender.com",
+] 
 
 
 # Application definition
@@ -84,8 +86,9 @@ WSGI_APPLICATION = 'core.wsgi.application'
 
 DATABASES = {
     "default": dj_database_url.config(
-        default=f"sqlite:///{BASE_DIR}/db.sqlite3",
-        conn_max_age=600
+        default=os.getenv("DATABASE_URL"),
+        conn_max_age=600,
+        ssl_require=True
     )
 }
 
