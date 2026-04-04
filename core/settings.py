@@ -31,9 +31,16 @@ DATABASE_URL = os.getenv("DATABASE_URL")
 DEBUG = os.getenv("DEBUG", "False") == "True"
 
 ALLOWED_HOSTS = [
-    "your-app-name.onrender.com",
-] 
+    "dhirendra-portfolio.onrender.com",
+    "localhost",
+    "127.0.0.1"
+]
 
+CSRF_TRUSTED_ORIGINS = [
+    "https://dhirendra-portfolio.onrender.com"
+]
+
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 # Application definition
 
